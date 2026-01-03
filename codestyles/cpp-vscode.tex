@@ -1,0 +1,66 @@
+% ============================================
+% CODESTYLE: C++ VS Code Dark+ Theme
+% Colores vibrantes estilo VS Code
+% ============================================
+
+% VS Code Dark+ colors
+\definecolor{vsKeyword}{HTML}{569CD6}    % Blue - keywords
+\definecolor{vsType}{HTML}{4EC9B0}       % Teal/Cyan - types
+\definecolor{vsString}{HTML}{CE9178}     % Salmon - strings
+\definecolor{vsComment}{HTML}{6A9955}    % Green - comments
+\definecolor{vsNumber}{HTML}{B5CEA8}     % Light green - numbers
+\definecolor{vsFunction}{HTML}{DCDCAA}   % Yellow - functions
+\definecolor{vsNamespace}{HTML}{4EC9B0}  % Teal - namespaces
+\definecolor{vsOperator}{HTML}{D4D4D4}   % Light gray - operators
+\definecolor{vsPurple}{HTML}{C586C0}     % Purple - control flow
+\definecolor{vsBg}{HTML}{F8F9FA}         % Light background
+
+\lstdefinestyle{cpp-vscode}{
+    language=C++,
+    backgroundcolor=\color{vsBg},
+    basicstyle=\fontfamily{pcr}\selectfont\small,
+    commentstyle=\color{vsComment}\itshape,
+    keywordstyle=\color{vsKeyword}\bfseries,
+    stringstyle=\color{vsString},
+    numberstyle=\tiny\color{codegray},
+    numbers=none,
+    xleftmargin=20pt,
+    lineskip=-1pt,
+    tabsize=4,
+    columns=fullflexible,
+    keepspaces=true,
+    frame=l,
+    framesep=8pt,
+    framerule=3pt,
+    rulecolor=\color{ColorFrame},
+    breaklines=true,
+    breakatwhitespace=true,
+    postbreak=\mbox{\textcolor{codegray}{$\hookrightarrow$}\space},
+    showstringspaces=false,
+    showtabs=false,
+    escapeinside={(*@}{@*)},
+    % Keywords (blue)
+    morekeywords={
+        nullptr,constexpr,auto,decltype,noexcept,override,final,
+        namespace,template,typename,using,static_cast,
+        return,if,else,for,while,do,switch,case,break,continue
+    },
+    % Types (teal) - emph class 1
+    emph={
+        int,double,float,bool,void,char,size_t,int64_t,uint32_t,
+        struct,class,enum,const,static,unsigned,signed,long,short
+    },
+    emphstyle=\color{vsType}\bfseries,
+    % STL/Custom types (teal) - emph class 2
+    emph={[2]
+        vector,string,complex,array,map,set,pair,tuple,
+        optional,unique_ptr,shared_ptr,
+        FourierCoefficient,kissfft
+    },
+    emphstyle={[2]\color{vsType}},
+    % Namespaces (teal) - emph class 3
+    emph={[3]std,cv,chrono,filesystem},
+    emphstyle={[3]\color{vsNamespace}},
+}
+
+\lstset{style=cpp-vscode}

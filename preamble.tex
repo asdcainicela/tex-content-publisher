@@ -40,10 +40,12 @@
 
 %------------------------------------------------------------------------
 % LOAD CONFIGURATION (with fallback to defaults)
+% Requires \def\tcppath{path/to/tex-content-publisher/} BEFORE \input{preamble}
 %------------------------------------------------------------------------
-\InputIfFileExists{config-colors}{}{\input{defaults/colors}}
-\InputIfFileExists{config-logos}{}{\input{defaults/logos}}
-\InputIfFileExists{config-layout}{}{\input{defaults/layout}}
+\ifdefined\tcppath\else\def\tcppath{}\fi
+\InputIfFileExists{config-colors}{}{\input{\tcppath defaults/colors}}
+\InputIfFileExists{config-logos}{}{\input{\tcppath defaults/logos}}
+\InputIfFileExists{config-layout}{}{\input{\tcppath defaults/layout}}
 
 %------------------------------------------------------------------------
 % PAGE CONFIGURATION

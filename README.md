@@ -117,4 +117,5 @@ flowchart LR
 |----------|------|----------|
 | Structured Text | `codestyles/ST.tex` | IEC 61131-3, PLCs |
 | C++ | `codestyles/cpp.tex` | OpenCV, STL |
+| C++ (VS Code) | `codestyles/cpp-vscode.tex` | Modern VS Code Dark+ theme |
 | Python | `codestyles/python.tex` | ML, scripting |
