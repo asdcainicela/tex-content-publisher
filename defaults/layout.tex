@@ -1,0 +1,40 @@
+% ============================================
+% LAYOUT DEFAULT - TEX-CONTENT-PUBLISHER
+% Configuración de header/footer
+% ============================================
+
+% Capa de header con degradado
+\DeclareNewLayer[
+    background,
+    topmargin,
+    addheight=3.17cm,
+    contents={
+        \begin{tikzpicture}[remember picture, overlay]
+            \path[shade, left color=ColorHeadLeft, right color=ColorBg]
+            (current page.north west) rectangle ([yshift=-3.17cm]current page.north east);
+        \end{tikzpicture}
+    }
+]{head.bg}
+
+\AddLayersAtBeginOfPageStyle{scrheadings}{head.bg}
+
+% Limpiar headers/footers
+\clearpairofpagestyles
+
+% Capa de footer
+\DeclareNewLayer[
+    background,
+    bottommargin,
+    addheight=3cm,
+    contents={
+        \begin{tikzpicture}[remember picture, overlay]
+            \path[fill=ColorLineFoot]
+            ([yshift=2.55cm]current page.south west) rectangle ([yshift=2.5cm]current page.south east);
+        \end{tikzpicture}
+    }
+]{foot.bg}
+
+\AddLayersAtBeginOfPageStyle{scrheadings}{foot.bg}
+
+% Footer central con número de página
+\cfoot{\thepage}

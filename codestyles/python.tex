@@ -1,0 +1,50 @@
+% ============================================
+% CODESTYLE: Python
+% ============================================
+
+\lstdefinestyle{python}{
+    language=Python,
+    backgroundcolor=\color{white},
+    commentstyle=\color{codegreen}\itshape,
+    keywordstyle=\color{blue}\bfseries,
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\normalsize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=8pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4,
+    aboveskip=15pt,
+    belowskip=0pt,
+    frame=tb,
+    rulecolor=\color{ColorFrame},
+    columns=flexible,
+    morekeywords={
+        % Python 3 keywords adicionales
+        async,await,nonlocal,
+        % Typing
+        Optional,List,Dict,Tuple,Set,Union,Any,Callable,
+        % Common libraries
+        numpy,pandas,matplotlib,torch,tensorflow,
+        cv2,PIL,requests,asyncio,
+        % Decorators
+        property,staticmethod,classmethod,dataclass
+    },
+    emph={
+        self,cls,True,False,None
+    },
+    emphstyle=\color{codepurple}\bfseries,
+    escapeinside={(*@}{@*)},
+    literate=
+        {->}{{\color{blue}->}}{2}
+        {lambda}{{\color{blue}lambda}}{6}
+}
+
+% Activar el estilo
+\lstset{style=python}

@@ -1,0 +1,112 @@
+% ============================================
+% TEX-CONTENT-PUBLISHER - Preamble Base
+% Template genérico para documentos técnicos
+% ============================================
+
+\documentclass[20pt]{extarticle}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{setspace}
+
+% Paquetes matemáticos
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+% Gráficos y colores
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{pagecolor}
+\usepackage{geometry}
+\usepackage{hyperref}
+
+% Headers/Footers
+\usepackage[plainfootsepline]{scrlayer-scrpage}
+
+% Fuentes
+\usepackage{mathpazo}
+\usepackage{microtype}
+
+% Tablas y listas
+\usepackage{listings, multicol}
+\usepackage{wrapfig}
+\usepackage[x11names,table]{xcolor}
+\usepackage{colortbl}
+\usepackage[most]{tcolorbox}
+
+% Secciones
+\usepackage{titlesec}
+
+% ============================================
+% CARGAR CONFIGURACIÓN (con fallback a defaults)
+% ============================================
+\InputIfFileExists{config-colors}{}{\input{defaults/colors}}
+\InputIfFileExists{config-logos}{}{\input{defaults/logos}}
+\InputIfFileExists{config-layout}{}{\input{defaults/layout}}
+
+% ============================================
+% CONFIGURACIÓN DE PÁGINA
+% ============================================
+\geometry{
+    paperwidth=32cm,
+    paperheight=32cm,
+    margin=3cm,
+    top=4cm
+}
+
+% ============================================
+% HYPERREF SETUP
+% ============================================
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+
+% ============================================
+% FORMATO DE SECCIONES
+% ============================================
+\titleformat{\section}
+    {\centering\color{ColorBlueText}\fontsize{40}{48}\bfseries}
+    {}
+    {0pt}
+    {}
+
+\titleformat{\subsection}
+    {\color{ColorBlueText}\fontsize{31}{37}\bfseries}
+    {}
+    {0pt}
+    {}
+
+% ============================================
+% ESPACIADO
+% ============================================
+\setlength{\parskip}{15pt}
+\setlength{\parindent}{0pt}
+
+% ============================================
+% COMANDOS ÚTILES
+% ============================================
+\newcommand{\imp}[1]{\textcolor{red}{#1}}
+\newcommand{\highlight}[1]{\fcolorbox{white}{white}{\lstinline|#1|}}
+\newcommand{\Highlight}[1]{\lstinline|#1|}
+
+% ============================================
+% TCOLORBOX (cajas de contenido)
+% ============================================
+\newtcolorbox{Box1}[2][]{
+    lower separated=false,
+    colback=ColorBox,
+    colframe=white,
+    fonttitle=\bfseries,
+    colbacktitle=ColorBoxTitle,
+    coltitle=black,
+    enhanced,
+    attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
+    title=#2,#1
+}
+
+% Comando para debug
+\newcommand{\debugval}[1]{\fcolorbox{ColorDebugFrame}{ColorDebugFill}{\small{#1}}\ }

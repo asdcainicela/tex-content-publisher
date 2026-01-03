@@ -1,0 +1,49 @@
+% ============================================
+% CODESTYLE: C++ 
+% Para proyectos como fourier-epicycles-cpp
+% ============================================
+
+\lstdefinestyle{cpp}{
+    language=C++,
+    backgroundcolor=\color{white},
+    commentstyle=\color{codegreen}\itshape,
+    keywordstyle=\color{blue}\bfseries,
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\normalsize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=8pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4,
+    aboveskip=15pt,
+    belowskip=0pt,
+    frame=tb,
+    rulecolor=\color{ColorFrame},
+    columns=flexible,
+    morekeywords={
+        % C++11/14/17/20 keywords
+        nullptr,constexpr,auto,decltype,noexcept,override,final,
+        static_assert,thread_local,alignas,alignof,char16_t,char32_t,
+        concept,requires,co_await,co_return,co_yield,
+        % STL common
+        vector,string,map,unordered_map,set,array,optional,variant,
+        unique_ptr,shared_ptr,make_unique,make_shared,
+        % OpenCV (para fourier project)
+        Mat,Point,Point2f,Scalar,VideoCapture,VideoWriter,
+        imread,imshow,waitKey,circle,line,putText
+    },
+    emph={
+        std,cv,chrono,filesystem
+    },
+    emphstyle=\color{codepurple},
+    escapeinside={(*@}{@*)}
+}
+
+% Activar el estilo
+\lstset{style=cpp}
