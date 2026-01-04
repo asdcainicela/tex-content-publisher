@@ -1,66 +1,85 @@
 % ============================================
-% CODESTYLE: C++ VS Code Dark+ Theme
-% Colores vibrantes estilo VS Code
+% CODESTYLE: C++ - Paleta estilo IDE moderno
+% Inspirado en VS Code / One Dark Pro
 % ============================================
 
-% VS Code Dark+ colors
-\definecolor{vsKeyword}{HTML}{569CD6}    % Blue - keywords
-\definecolor{vsType}{HTML}{4EC9B0}       % Teal/Cyan - types
-\definecolor{vsString}{HTML}{CE9178}     % Salmon - strings
-\definecolor{vsComment}{HTML}{6A9955}    % Green - comments
-\definecolor{vsNumber}{HTML}{B5CEA8}     % Light green - numbers
-\definecolor{vsFunction}{HTML}{DCDCAA}   % Yellow - functions
-\definecolor{vsNamespace}{HTML}{4EC9B0}  % Teal - namespaces
-\definecolor{vsOperator}{HTML}{D4D4D4}   % Light gray - operators
-\definecolor{vsPurple}{HTML}{C586C0}     % Purple - control flow
-\definecolor{vsBg}{HTML}{F8F9FA}         % Light background
+% PALETA ARMONIZADA con tema del PDF (Teal/Rose/Purple)
+\definecolor{vsBlue}{HTML}{0D9488}       % Teal (primary) - keywords estructurales
+\definecolor{vsCyan}{HTML}{0891B2}       % Cyan - tipos primitivos
+\definecolor{vsIndigo}{HTML}{8B5CF6}     % Purple (accent) - clases/STL
+\definecolor{vsPurple}{HTML}{7C3AED}     % Violet - control flow
+\definecolor{vsGreen}{HTML}{059669}      % Emerald - comentarios
+\definecolor{vsOrange}{HTML}{EA580C}     % Naranja - strings
+\definecolor{vsMagenta}{HTML}{E11D48}    % Rose (secondary) - namespaces
+\definecolor{vsYellow}{HTML}{D97706}     % Amber - números
+\definecolor{vsGray}{HTML}{64748B}       % Slate - operadores/texto
+\definecolor{vsBg}{HTML}{F8FAFC}         % Background
 
 \lstdefinestyle{cpp-vscode}{
     language=C++,
     backgroundcolor=\color{vsBg},
-    basicstyle=\fontfamily{pcr}\selectfont\small,
-    commentstyle=\color{vsComment}\itshape,
-    keywordstyle=\color{vsKeyword}\bfseries,
-    stringstyle=\color{vsString},
+    basicstyle=\fontfamily{pcr}\selectfont\small\color{vsGray},
+    commentstyle=\color{vsGreen}\itshape,
+    stringstyle=\color{vsOrange},
     numberstyle=\tiny\color{codegray},
     numbers=none,
     xleftmargin=20pt,
     lineskip=-1pt,
     tabsize=4,
+    aboveskip=15pt,
+    belowskip=10pt,
     columns=fullflexible,
     keepspaces=true,
-    frame=l,
-    framesep=8pt,
-    framerule=3pt,
-    rulecolor=\color{ColorFrame},
+    frame=tb,
+    rulecolor=\color{vsCyan},
+    framerule=0.1pt,
     breaklines=true,
     breakatwhitespace=true,
     postbreak=\mbox{\textcolor{codegray}{$\hookrightarrow$}\space},
     showstringspaces=false,
     showtabs=false,
     escapeinside={(*@}{@*)},
-    % Keywords (blue)
+    % Control flow (PÚRPURA)
     morekeywords={
-        nullptr,constexpr,auto,decltype,noexcept,override,final,
-        namespace,template,typename,using,static_cast,
-        return,if,else,for,while,do,switch,case,break,continue
+        return,if,else,for,while,do,switch,case,break,continue,throw,try,catch
     },
-    % Types (teal) - emph class 1
+    keywordstyle=\color{vsPurple}\bfseries,
+    % Structural keywords (AZUL)
+    morekeywords=[2]{
+        struct,class,enum,namespace,template,typename,using,
+        public,private,protected,virtual,override,final,
+        static,const,constexpr,auto,decltype,noexcept,
+        nullptr,inline,explicit,static_cast,dynamic_cast
+    },
+    keywordstyle=[2]\color{vsBlue}\bfseries,
+    % Primitive types (CYAN)
     emph={
-        int,double,float,bool,void,char,size_t,int64_t,uint32_t,
-        struct,class,enum,const,static,unsigned,signed,long,short
+        int,double,float,bool,void,char,
+        size_t,int64_t,uint32_t,unsigned,signed,long,short
     },
-    emphstyle=\color{vsType}\bfseries,
-    % STL/Custom types (teal) - emph class 2
+    emphstyle=\color{vsCyan}\bfseries,
+    % STL/Classes (TEAL)
     emph={[2]
         vector,string,complex,array,map,set,pair,tuple,
         optional,unique_ptr,shared_ptr,
         FourierCoefficient,kissfft
     },
-    emphstyle={[2]\color{vsType}},
-    % Namespaces (teal) - emph class 3
+    emphstyle={[2]\color{vsIndigo}},
+    % Namespaces (MAGENTA)
     emph={[3]std,cv,chrono,filesystem},
-    emphstyle={[3]\color{vsNamespace}},
+    emphstyle={[3]\color{vsMagenta}},
+    % Numbers (AMARILLO/DORADO)
+    literate=
+        {0}{{{\color{vsYellow}0}}}1
+        {1}{{{\color{vsYellow}1}}}1
+        {2}{{{\color{vsYellow}2}}}1
+        {3}{{{\color{vsYellow}3}}}1
+        {4}{{{\color{vsYellow}4}}}1
+        {5}{{{\color{vsYellow}5}}}1
+        {6}{{{\color{vsYellow}6}}}1
+        {7}{{{\color{vsYellow}7}}}1
+        {8}{{{\color{vsYellow}8}}}1
+        {9}{{{\color{vsYellow}9}}}1,
 }
 
 \lstset{style=cpp-vscode}
